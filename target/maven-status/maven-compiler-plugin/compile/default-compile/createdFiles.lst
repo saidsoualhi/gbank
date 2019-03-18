@@ -1,0 +1,16 @@
+ma\gov\gbank\controller\Log4jXmlConfigurationExample.class
+ma\gov\gbank\dao\IDao.class
+ma\gov\gbank\controller\SessionInterceptor.class
+ma\gov\gbank\entities\Login.class
+ma\gov\gbank\controller\LoggerInterceptor.class
+ma\gov\gbank\services\UserServiceImpl.class
+ma\gov\gbank\dao\UserDao.class
+ma\gov\gbank\controller\CompteController.class
+ma\gov\gbank\entities\User.class
+ma\gov\gbank\dao\UserDaoImpl.class
+ma\gov\gbank\dao\DaoImpl.class
+ma\gov\gbank\services\IService.class
+ma\gov\gbank\services\ServiceImpl.class
+ma\gov\gbank\controller\UserController.class
+ma\gov\gbank\services\UserService.class
+ma\gov\gbank\entities\Compte.class
