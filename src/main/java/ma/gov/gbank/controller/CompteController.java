@@ -29,6 +29,7 @@ public class CompteController {
 	    mnv.addObject("compteList", listCompte);
 		return mnv;
 	}
+	
 
 	@RequestMapping(value="/compte-list", method= RequestMethod.POST)
 	public List<Compte> list() {
