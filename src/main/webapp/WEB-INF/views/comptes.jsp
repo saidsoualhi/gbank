@@ -235,11 +235,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div> --%>
           <div class="col-sm-12">
           
-          <table id="comptes-list" class="table table-bordered table-striped cf" width="100%" cellspacing="0">
-		  </table>
+<!--           <table id="comptes-list" class="table table-bordered table-striped cf" width="100%" cellspacing="0"> -->
+<!-- 		  </table> -->
           
           
-	        <%-- <display:table id="data" name="${compteList}" keepStatus="true" requestURI="/list" export="true" pagesize="5" defaultorder="descending"
+	        <display:table id="data" name="${compteList}" keepStatus="true" requestURI="/list" export="true" pagesize="5" defaultorder="descending"
 	        class="table table-bordered table-condensed table-hover table-striped" >
 			    <display:column property="id" title="Id" sortable="true" />
 				<display:column property="capital" title="Capital" sortable="true" />
@@ -249,7 +249,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<a class="btn btn-info" id="compteToUpdate" onclick="dataToUpdate(${data.id}, ${data.capital},'${data.description}',${data.num})">Update</a>
 					<a class="btn btn-info" href="./deleteCompte/${data.id}">delete</a>
 				</display:column>
-			</display:table> --%>
+			</display:table>
 	       </div>
 	</div>
 </div>

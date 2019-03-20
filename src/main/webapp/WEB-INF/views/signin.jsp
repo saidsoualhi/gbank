@@ -40,7 +40,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<input type="submit" name="submit" value="Login">	
 					
-					<!-- <h3>Not a member?<a href="signup.html"> Sign up now</a></h3>				
+					<h3>Not a member?<a href="<c:url value="/user/signupPage"/>"> Sign up now</a></h3>		
+					<!-- 		
 					<h2>or login with</h2>
 					<div class="login-icons">
 						<ul>
@@ -50,7 +51,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</ul>
 					</div> -->
 				</f:form>
-				<h5><a href="index.html">Go Back to Home</a></h5>
+<!-- 				<h5><a href="index.html">Go Back to Home</a></h5> -->
 			</div>
       </div>
 </div>
@@ -59,14 +60,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="copyrights">
 	 <p>© 2016 Shoppy. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
 </div>	
-<!--COPY rights end here-->
 
-<!--scrolling js-->
-		<script src="js/jquery.nicescroll.js"></script>
-		<script src="js/scripts.js"></script>
-		<!--//scrolling js-->
-<script src="js/bootstrap.js"> </script>
-<!-- mother grid end here-->
+<%@ include file="../shared/footer.jsp" %>  
+
 </body>
 </html>
 

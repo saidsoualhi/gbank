@@ -62,22 +62,21 @@ $(function () {
     });
 });
     
-var data = new Array();
-    $(function () {
-        $.ajax({
-            type: "POST",
-            url: "/gbank/compte-list",
-            data: JSON.stringify(data),
-            dataType: 'json',
-            success: function (data) {
-                console.log(data)
-            },
-            error: function (response) {
-                console.log("errooooor")
-            }
-        });
-
-    });
+//    $(function () {
+//        $.ajax({
+//            type: "GET",
+//            url: "/gbank/compte-list",
+//            contentType: "application/json;charset=utf-8",
+//            dataType: "json",
+//            success: function (data) {
+//                console.log(data)
+//            },
+//            error: function (response) {
+//                console.log(response)
+//            }
+//        });
+//
+//    });
     
 //    $("#searchTable").focus(function () {
 //        if (this.className == "search-table") {

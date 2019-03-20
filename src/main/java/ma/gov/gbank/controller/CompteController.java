@@ -3,6 +3,7 @@ package ma.gov.gbank.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.codehaus.jettison.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import ma.gov.gbank.entities.Compte;
@@ -30,11 +32,11 @@ public class CompteController {
 		return mnv;
 	}
 	
-
-	@RequestMapping(value="/compte-list", method= RequestMethod.POST)
-	public List<Compte> list() {
+	@RequestMapping(value="/compte-list", method= RequestMethod.GET, consumes = "application/json")
+	public @ResponseBody JSONArray list() {
 		ArrayList<Compte> listCompte = (ArrayList<Compte>) service.selectAll();
-		return listCompte;
+		JSONArray jsArray = new JSONArray(listCompte); 
+		return jsArray;
 	}
 	
 	@RequestMapping(value="addCompte")

@@ -1,21 +1,32 @@
 package ma.gov.gbank.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="TCOMPTE")
-public class Compte {
+public class Compte implements Serializable {
 	
-	 @Id
+	 /**
+	 * 
+	 */
+	private static final long serialVersionUID = -5854414574024025978L;
+	@Id
 	 @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String num;
 	private String description;
 	private String capital;
+	@ManyToOne
+	@JoinColumn(name="code_user")
+	private User user; 
 	
 	public Compte() {
 		super();

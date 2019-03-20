@@ -1,21 +1,32 @@
 package ma.gov.gbank.entities;
 
+import java.io.Serializable;
+import java.util.Collection;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="tuser")
-public class User {
+public class User implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 343064508484226593L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	  private Long id;
 	  private String username;
 	  private String password;
 	  private String email;
+	  @OneToMany(mappedBy="user", fetch=FetchType.LAZY)
+	  private Collection<Compte> listCompte;
 	  
 	  public String getUsername() {
 		  return username;

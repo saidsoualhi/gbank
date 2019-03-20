@@ -24,8 +24,7 @@ public class UserController {
 	HttpSession session;
 	
 	@RequestMapping(value="/login", method = RequestMethod.GET)
-	public ModelAndView getForm() {
-		System.out.println("login method GET");
+	public ModelAndView getFormSignin() {
 		ModelAndView mav = new ModelAndView("signin");
 		mav.addObject("user", new User());
 		return mav;
@@ -35,7 +34,6 @@ public class UserController {
 	@RequestMapping(value="/login", method = RequestMethod.POST)
 	public ModelAndView login(@ModelAttribute("user") User user) {
 		ModelAndView mav;
-		System.out.println("login method POST");
 		User res = userService.getUser(user);
 		if(res == null) {
 			mav = new ModelAndView("signin");
@@ -47,6 +45,24 @@ public class UserController {
 			session.setAttribute("user", user);
 			return mav;
 		}
+	}
+	
+
+	@RequestMapping(value="/signupPage")
+	public ModelAndView signup() {
+		ModelAndView mav = new ModelAndView("signup");
+		return mav;
+	}
+	
+
+	@RequestMapping(value="/signup")
+	public ModelAndView getFormSignup(@ModelAttribute User user) {
+		user.setUsername(user.getUsername());
+		user.setEmail(user.getEmail());
+		user.setPassword(user.getPassword());
+		userService.addUser(user);
+		ModelAndView mav = new ModelAndView("redirect:/list");
+		return mav;
 	}
 	
 	
