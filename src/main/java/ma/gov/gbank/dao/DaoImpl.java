@@ -79,6 +79,13 @@ public class DaoImpl implements IDao {
 		Query q=em.createQuery("from Compte c");
 		return q.getResultList();
 	}
+	
+
+	@Override
+	public List<Compte> selectAllByUserId(Long id) {
+		Query q=em.createQuery("from Compte c where code_user LIKE id");
+		return q.getResultList();
+	}
 
 	@Override
 	public Compte selectById(Long id) {

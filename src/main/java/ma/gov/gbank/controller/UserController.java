@@ -1,9 +1,11 @@
 package ma.gov.gbank.controller;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -49,20 +51,31 @@ public class UserController {
 	
 
 	@RequestMapping(value="/signupPage")
-	public ModelAndView signup() {
+	public ModelAndView signup(@ModelAttribute User user) {
 		ModelAndView mav = new ModelAndView("signup");
 		return mav;
 	}
 	
 
 	@RequestMapping(value="/signup")
-	public ModelAndView getFormSignup(@ModelAttribute User user) {
+	public ModelAndView getFormSignup(@Valid User user, BindingResult result) {
+//		User u = userService.selectByEmail(user);
+		ModelAndView validUser = new ModelAndView("redirect:/list");
+		ModelAndView inValidUser = new ModelAndView("signup");
+		
+		if (result.hasErrors()) {
+            return inValidUser;
+        }
+		
+		if (userService.selectByEmail(user) != null) {
+			return inValidUser;
+		}
+		
 		user.setUsername(user.getUsername());
 		user.setEmail(user.getEmail());
 		user.setPassword(user.getPassword());
 		userService.addUser(user);
-		ModelAndView mav = new ModelAndView("redirect:/list");
-		return mav;
+		return validUser;
 	}
 	
 	

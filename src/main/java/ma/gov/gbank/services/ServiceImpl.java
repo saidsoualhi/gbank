@@ -55,5 +55,10 @@ public class ServiceImpl implements IService {
 		return dao.selectById(id);
 	}
 
+	@Override
+	public List<Compte> selectAllByUserId(Long id) {
+		return dao.selectAllByUserId(id);
+	}
+
 
 }

@@ -1,6 +1,7 @@
 package ma.gov.gbank.services;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,9 +17,16 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public User getUser(User user) {
-		user = userDao.selectByUsername(user);
+		user = userDao.userConnexion(user);
 		return user;
 	}
+	
+	@Override
+	public User selectByEmail(User user) {
+		user = userDao.selectByEmail(user);
+		return user;
+	}
+
 
 	@Override
 	public boolean addUser(User user) {
@@ -30,4 +38,8 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 
+	@Override
+	public List<User> selectAll() {
+		return userDao.selectAll();
+	}
 }

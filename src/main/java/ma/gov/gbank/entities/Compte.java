@@ -2,7 +2,9 @@ package ma.gov.gbank.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,13 +26,19 @@ public class Compte implements Serializable {
 	private String num;
 	private String description;
 	private String capital;
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="code_user")
 	private User user; 
 	
 	public Compte() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
 	}
 	public Compte(String num, String description, String capital) {
 		super();

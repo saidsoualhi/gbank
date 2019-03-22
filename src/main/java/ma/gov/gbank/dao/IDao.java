@@ -13,5 +13,6 @@ public interface IDao {
 	boolean delete(Compte c) throws SQLException;
 
 	List<Compte> selectAll();
+	List<Compte> selectAllByUserId(Long id);
 	Compte selectById(Long id);
 }

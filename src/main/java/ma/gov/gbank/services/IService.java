@@ -13,4 +13,5 @@ public interface IService {
 	boolean deleteCompte(Compte c);
 	List<Compte> selectAll();
 	Compte selectById(Long id);
+	List<Compte> selectAllByUserId(Long id);
 }

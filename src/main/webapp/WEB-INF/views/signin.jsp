@@ -22,7 +22,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="login-block">
 				<f:form action="${pageContext.request.contextPath}/user/login" method="post" modelAttribute="user">
-					<f:input path="email" name="email" class="form-control" placeholder="Username"/>
+					<f:input path="id" name="id" class="hidden"/>
+					<f:input path="email" name="email" class="form-control" placeholder="Email"/>
 					<f:input path="password" name="password" class="lock" placeholder="Password"/>
 					<div class="forgot-top-grids">
 						<div class="forgot-grid">
@@ -40,7 +41,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<input type="submit" name="submit" value="Login">	
 					
-					<h3>Not a member?<a href="<c:url value="/user/signupPage"/>"> Sign up now</a></h3>		
+					<h3>Not a member?<a href="${pageContext.request.contextPath}/user/signupPage"> Sign up now</a></h3>		
 					<!-- 		
 					<h2>or login with</h2>
 					<div class="login-icons">

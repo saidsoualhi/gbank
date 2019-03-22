@@ -20,11 +20,22 @@ public class UserDaoImpl implements UserDao {
 	EntityManager em = emf.createEntityManager();
 	
 	@Override
-	public User selectByUsername(User user) {
+	public User userConnexion(User user) {
 		Query q = em.createQuery("from User u where email = :e and password  = :p");
 		q.setParameter("e", user.getEmail());
 		q.setParameter("p", user.getPassword());
 		
+		List<User> users = q.getResultList();
+		if (users != null && users.size() != 0)
+			return (User) q.getResultList().get(0);
+		else
+			return null;
+	}
+
+	@Override
+	public User selectByEmail(User user) {
+		Query q = em.createQuery("from User u where email = :e");
+		q.setParameter("e", user.getEmail());
 		List<User> users = q.getResultList();
 		if (users != null && users.size() != 0)
 			return (User) q.getResultList().get(0);
@@ -46,6 +57,12 @@ public class UserDaoImpl implements UserDao {
 			tx.rollback();
 			return false;
 		}
+	}
+
+	@Override
+	public List<User> selectAll() {
+		Query q=em.createQuery("from User u");
+		return q.getResultList();
 	}
 
 
